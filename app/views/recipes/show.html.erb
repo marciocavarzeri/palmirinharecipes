@@ -1,22 +1,61 @@
-<section>
-  <h1><%= @recipe.name %></h1>
-  <dl class="dl-horizontal">
-    <dt>Cozinha</dt>
-    <dd><%= @recipe.cuisine %></dd>
-    <dt>Tipo de comida</dt>
-    <dd><%= @recipe.food_type %></dd>
-    <dt>Quantas pessoas serve</dt>
-    <dd><%= @recipe.serves %></dd>
-    <dt>Tempo de preparo</dt>
-    <dd><%= @recipe.cooking_time %></dd>
-    <dt>Nível de dificuldade</dt>
-    <dd><%= @recipe.difficulty %></dd>
-    <dt>Ingredientes</dt>
-    <dd><%= @recipe.ingredients %></dd>
-    <dt>Passo a passo</dt>
-    <dd><%= @recipe.directions %></dd>
-  </dl>
-  <div>
-    <%= link_to 'Voltar', root_path , class: "btn btn-default" %>
+<section
+  <div class="single-item">
+    <div class="container">
+      <!-- Shopping single item contents -->
+      <div class="single-item-content">
+        <div class="row">
+          <div class="col-md-4 col-sm-5">
+            <%= image_tag 'shopping/shop-single.jpg', class: 'img-responsive img-thumbnail' %>
+          </div>
+          <div class="col-md-8 col-sm-7">
+            <!-- Heading -->
+            <h3><%= @recipe.name %></h3>
+            <div class="row">
+              <div class="col-md-7 col-sm-12">
+                <div class="item-details">
+                  <h5>Ingredientes :</h5>
+                  <p class="text-justify">
+                    <%= @recipe.ingredients %>
+                  </p>
+                  <hr>
+                  <h5>Passo a passo :</h5>
+                  <p class="text-justify">
+                    <%= @recipe.directions %>
+                  </p>
+                </div>
+                <div>
+                  <%= link_to 'Voltar', root_path , class: "btn btn-default" %>                </div>
+              </div>
+              <div class="col-md-5 col-sm-12">
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <tr>
+                      <td>Cozinha</td>
+                      <td><%= @recipe.cuisine %></td>
+                    </tr>
+                    <tr>
+                      <td>Tipo de comida</td>
+                      <td><%= @recipe.food_type %></td>
+                    </tr>
+                    <tr>
+                      <td>Tempo de preparo</td>
+                      <td><%= @recipe.cooking_time %> min.</td>
+                    </tr>
+                    <tr>
+                      <td>Quantas pessoas serve</td>
+                      <td><%= @recipe.serves %></td>
+                    </tr>
+                    <tr>
+                      <td>Nível de dificuldade</td>
+                      <td><%= @recipe.difficulty %></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

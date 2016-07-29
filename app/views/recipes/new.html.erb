@@ -1,17 +1,34 @@
 <h1>Cadastrar uma receita</h1>
 <section>
-  <%= simple_form_for @recipe do |f| %>
-    <%= f.input :name, label: 'Nome da receita' %>
-    <%= f.input :cuisine, label: 'Cozinha (cozinhas)' %>
-    <%= f.input :food_type, label: 'Tipo de comida' %>
-    <%= f.input :serves, label: 'Quantas pessoas serve' %>
-    <%= f.input :cooking_time, label: 'Tempo de preparo' %>
-    <%= f.input :difficulty, collection: ['Fácil', 'Médio', 'Difícil'],
-                             label: 'Nível de dificuldade' %>
-    <%= f.input :ingredients, label: 'Ingredientes' %>
-    <%= f.input :directions, label: 'Passo a passo' %>
+  <div class="row">
+    <div class="col-md-8 col-sm-8">
+      <!-- General information content -->
+      <div class="general-content">
+        <%= simple_form_for @recipe do |f| %>
+          <%= f.input :name, label: 'Nome da receita' %>
+          <%= f.input :cuisine, label: 'Cozinha (cozinhas)' %>
+          <%= f.input :food_type, label: 'Tipo de comida' %>
+          <%= f.input :serves, label: 'Quantas pessoas serve' %>
+          <%= f.input :cooking_time, label: 'Tempo de preparo' %>
+          <%= f.input :difficulty, collection: ['Fácil', 'Médio', 'Difícil'],
+                                   label: 'Nível de dificuldade' %>
+          <%= f.input :ingredients, label: 'Ingredientes' %>
+          <%= f.input :directions, label: 'Passo a passo' %>
 
-    <%= link_to 'Voltar', root_path , class: "btn btn-default" %>
-    <%= f.button :submit, 'Criar Receita' %>
-  <% end %>
+          <%= link_to 'Voltar', root_path , class: "btn btn-default" %>
+          <%= f.button :submit, 'Criar Receita' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+      <div class="general-img">
+        <%= image_tag 'dish/dish1.jpg', class: 'img-responsive img-thumbnail' %>
+        <span class="hot-tag br-green">Novo</span>
+      </div>
+      <div class="general-img">
+        <%= image_tag 'dish/dish2.jpg', class: 'img-responsive img-thumbnail' %>
+        <span class="hot-tag br-red">:D</span>
+      </div>
+    </div>
+  </div>
 </section>
