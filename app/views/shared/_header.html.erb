@@ -3,20 +3,15 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 col-sm-5">
-					<!-- Link -->
 					<%= link_to root_path do %>
-						<!-- Logo area -->
 						<div class="logo">
               <%= image_tag 'logo.png', class: 'img-responsive' %>
-							<!-- Heading -->
 							<h1>Palmirinha</h1>
-							<!-- Paragraph -->
 							<p>A rede social mais gostosa da internet</p>
 						</div>
 					<% end %>
 				</div>
 				<div class="col-md-8 col-sm-7">
-					<!-- Navigation -->
 					<nav class="navbar navbar-default navbar-right" role="navigation">
 						<div class="container-fluid">
 							<!-- Brand and toggle get grouped for better mobile display -->
@@ -39,9 +34,9 @@
                     <% end %>
                   </li>
 									<li>
-                    <%= link_to root_path do %>
+                    <%= link_to recipes_path do %>
                       <%= image_tag 'nav-menu/nav2.jpg', class: 'img-responsive' %>
-                      Minhas Receitas
+                      Receitas
                     <% end %>
                   </li>
                   <li>
