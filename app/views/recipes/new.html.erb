@@ -1,0 +1,17 @@
+<h1>Cadastrar uma receita</h1>
+<section>
+  <%= simple_form_for @recipe do |f| %>
+    <%= f.input :name, label: 'Nome da receita' %>
+    <%= f.input :cuisine, label: 'Cozinha (cozinhas)' %>
+    <%= f.input :food_type, label: 'Tipo de comida' %>
+    <%= f.input :serves, label: 'Quantas pessoas serve' %>
+    <%= f.input :cooking_time, label: 'Tempo de preparo' %>
+    <%= f.input :difficulty, collection: ['Fácil', 'Médio', 'Difícil'],
+                             label: 'Nível de dificuldade' %>
+    <%= f.input :ingredients, label: 'Ingredientes' %>
+    <%= f.input :directions, label: 'Passo a passo' %>
+
+    <%= link_to 'Voltar', root_path , class: "btn btn-default" %>
+    <%= f.button :submit, 'Criar Receita' %>
+  <% end %>
+</section>
