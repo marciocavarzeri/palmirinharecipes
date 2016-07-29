@@ -9,7 +9,39 @@
   </head>
 
   <body>
-    <%= alert %>
-    <%= yield %>
+    <%= render 'shared/header' %>
+
+    <div class="inner-page padd">
+
+      <div class="general">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-8">
+              <!-- Alert to user -->
+              <% if alert %>
+                  <div class="alert alert-warning" role="alert">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <p><%= alert %></p>
+                  </div>
+              <% end %>
+              <!-- General information content -->
+              <div class="general-content">
+                  <%= yield %>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+  						<div class="general-img">
+                <%= image_tag 'dish/dish1.jpg', class: 'img-responsive img-thumbnail' %>
+  							<span class="hot-tag br-green">Novo</span>
+  						</div>
+  						<div class="general-img">
+                <%= image_tag 'dish/dish2.jpg', class: 'img-responsive img-thumbnail' %>
+  							<span class="hot-tag br-red">:D</span>
+  						</div>
+  					</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
