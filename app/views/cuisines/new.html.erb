@@ -1,0 +1,25 @@
+<h1>Cadastrar uma cozinha</h1>
+<section>
+  <div class="row">
+    <div class="col-md-8 col-sm-8">
+      <div class="general-content">
+        <%= simple_form_for @cuisine do |f| %>
+          <%= f.input :name, label: 'Nome da cozinha' %>
+
+          <%= link_to 'Voltar', root_path , class: "btn btn-default" %>
+          <%= f.button :submit, 'Criar Cozinha' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+      <div class="general-img">
+        <%= image_tag 'dish/dish3.jpg', class: 'img-responsive img-thumbnail' %>
+        <span class="hot-tag br-green">Novo</span>
+      </div>
+      <div class="general-img">
+        <%= image_tag 'dish/dish4.jpg', class: 'img-responsive img-thumbnail' %>
+        <span class="hot-tag br-red">:D</span>
+      </div>
+    </div>
+  </div>
+</section>
