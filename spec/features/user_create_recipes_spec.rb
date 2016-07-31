@@ -34,6 +34,7 @@ feature 'User create a new recipe' do
     select recipe.difficulty, from: 'Nível de dificuldade'
     fill_in 'Ingredientes', with: recipe.ingredients
     fill_in 'Passo a passo', with: recipe.directions
+    attach_file('Selecione uma foto', "#{Rails.root}/spec/fixtures/bolinho.png")
 
     click_on 'Criar Receita'
 
@@ -46,6 +47,7 @@ feature 'User create a new recipe' do
       expect(page).to have_content(recipe.difficulty)
       expect(page).to have_content(recipe.ingredients)
       expect(page).to have_content(recipe.directions)
+      expect(page).to have_xpath("//img[contains(@src,'bolinho.png')]")
     end
   end
 

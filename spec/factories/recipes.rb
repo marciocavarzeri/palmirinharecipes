@@ -16,5 +16,6 @@ FactoryGirl.define do
                  Em seguida misture o purê com o bacalhau
                  desfiado, acrescente os outros ingredientes.
                  Faça bolinhas e frite-as em óleo bem quente.'
+    picture { File.new("#{Rails.root}/spec/fixtures/bolinho.png") }
   end
 end

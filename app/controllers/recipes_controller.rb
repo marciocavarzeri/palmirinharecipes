@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(params.require(:recipe)
                         .permit(:name, :cuisine, :food_type, :serves,
                                 :cooking_time, :difficulty, :ingredients,
-                                :directions))
+                                :directions, :picture))
     if @recipe.save
       redirect_to @recipe
     else
