@@ -23,7 +23,6 @@ feature 'Admin logout' do
     expect(page).to have_content('Saiu com sucesso')
 
     within('nav') do
-      expect(page).to have_content('Cadastrar Cozinha')
       expect(page).to have_content('Cadastrar Receita')
     end
   end

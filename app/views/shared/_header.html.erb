@@ -69,12 +69,14 @@
                       Cadastrar Receita
                     <% end %>
                   </li>
-                  <li>
-                    <%= link_to new_cuisine_path do %>
-                      <%= image_tag 'nav-menu/nav4.jpg', class: 'img-responsive' %>
-                      Cadastrar Cozinha
-                    <% end %>
-                  </li>
+                  <% if admin_signed_in? %>
+                    <li>
+                      <%= link_to new_cuisine_path do %>
+                        <%= image_tag 'nav-menu/nav4.jpg', class: 'img-responsive' %>
+                        Cadastrar Cozinha
+                      <% end %>
+                    </li>
+                  <% end %>
 								</ul>
 							</div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->
