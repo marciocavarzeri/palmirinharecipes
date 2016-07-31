@@ -22,3 +22,6 @@
 
 # SimpleCov report
 /coverage
+
+# Rspec Testes
+/spec/test_files/*
