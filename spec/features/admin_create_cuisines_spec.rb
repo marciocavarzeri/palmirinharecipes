@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'Admin create a cuisine' do
   scenario 'sucessfully' do
+    login_as_admin
     visit root_path
 
     click_on 'Cadastrar Cozinha'
@@ -18,6 +19,7 @@ feature 'Admin create a cuisine' do
   end
 
   scenario 'without required fields' do
+    login_as_admin
     visit root_path
 
     click_on 'Cadastrar Cozinha'

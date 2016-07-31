@@ -423,25 +423,7 @@ a:hover {
 .dropdown-menu:before {
   border-bottom-color: #f75353 !important;
 }
-/*
- * Cart drop down link color
- */
-.btn-cart-md a.cart-link,
-.btn-cart-sm a.cart-link {
-  color: #777777;
-}
-.btn-cart-md a.cart-link:hover,
-.btn-cart-sm a.cart-link:hover {
-  color: #555555;
-}
-.btn-cart-md .cart-dropdown,
-.btn-cart-sm .cart-dropdown {
-  border-top: 3px solid #f75353 !important;
-}
-.btn-cart-sm .cart-dropdown:before,
-.btn-cart-md .cart-dropdown:before {
-  border-bottom-color: #f75353 !important;
-}
+
 /****************/
 /* flex-slider  */
 /****************/

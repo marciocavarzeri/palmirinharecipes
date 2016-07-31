@@ -1,6 +1,30 @@
 <header>
   <div class="header">
 		<div class="container">
+      <div class="header-top">
+        <div class="row">
+          <div class="col-md-4 col-sm-4">
+          </div>
+          <div class="col-md-4 col-sm-4">
+          </div>
+          <div class="col-md-4 col-sm-4">
+              <div class="login-md">
+                <% if user_signed_in? %>
+                  Olá, <strong><%= current_user.email %></strong>
+                  - <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+                <% elsif  admin_signed_in? %>
+                  Olá, <strong><%= current_admin.email %></strong>
+                  - <%= link_to "Sair", destroy_admin_session_path, method: :delete %>
+                <% else %>
+                  <span><%= link_to "Entrar", new_user_session_path %></span> |
+                  <span><%= link_to "Área administrativa", new_admin_session_path %></span>
+                <% end %>
+                <div class="clearfix"></div>
+              </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
 			<div class="row">
 				<div class="col-md-4 col-sm-5">
 					<%= link_to root_path do %>
@@ -49,12 +73,6 @@
                     <%= link_to new_cuisine_path do %>
                       <%= image_tag 'nav-menu/nav4.jpg', class: 'img-responsive' %>
                       Cadastrar Cozinha
-                    <% end %>
-                  </li>
-									<li>
-                    <%= link_to root_path do %>
-                      <%= image_tag 'nav-menu/nav5.jpg', class: 'img-responsive' %>
-                      Login | Sair
                     <% end %>
                   </li>
 								</ul>
