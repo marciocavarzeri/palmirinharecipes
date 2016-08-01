@@ -4,14 +4,17 @@ feature 'User create a new recipe' do
   scenario 'successfully' do
     visit root_path
 
+    cuisine = create(:cuisine, name: 'Portuguesa')
+    food_type = create(:food_type, name: 'Entrada')
+
     click_on 'Cadastrar Receita'
 
     expect(page).to have_css('h1', text: 'Cadastrar uma receita')
 
     recipe = build(:recipe,
                    name: 'Bolinho de bacalhau',
-                   cuisine: 'Portuguesa',
-                   food_type: 'Entrada',
+                   cuisine: cuisine,
+                   food_type: food_type,
                    serves: 6,
                    cooking_time: 45,
                    difficulty: 'Médio',
@@ -27,8 +30,8 @@ feature 'User create a new recipe' do
                                Faça bolinhas e frite-as em óleo bem quente.')
 
     fill_in 'Nome da receita', with: recipe.name
-    fill_in 'Cozinha (cozinhas)', with: recipe.cuisine
-    fill_in 'Tipo de comida', with: recipe.food_type
+    select cuisine.name, from: 'Cozinha (cozinhas)'
+    select food_type.name, from: 'Tipo de comida'
     fill_in 'Quantas pessoas serve', with: recipe.serves
     fill_in 'Tempo de preparo', with: "#{recipe.cooking_time} minutos"
     select recipe.difficulty, from: 'Nível de dificuldade'
@@ -40,8 +43,8 @@ feature 'User create a new recipe' do
 
     within('section') do
       expect(page).to have_content(recipe.name)
-      expect(page).to have_content(recipe.cuisine)
-      expect(page).to have_content(recipe.food_type)
+      expect(page).to have_content(recipe.cuisine.name)
+      expect(page).to have_content(recipe.food_type.name)
       expect(page).to have_content(recipe.serves)
       expect(page).to have_content(recipe.cooking_time)
       expect(page).to have_content(recipe.difficulty)

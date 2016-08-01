@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :recipe do
     name 'Bolinho de bacalhau'
-    cuisine 'Portugues'
-    food_type 'Entrada'
+    cuisine
+    food_type
     serves 1
     cooking_time 45
     difficulty 'Médio'

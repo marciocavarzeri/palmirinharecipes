@@ -1,23 +1,23 @@
-<h1>Cadastrar uma cozinha</h1>
+<h1>Cadastrar um tipo de comida</h1>
 <section>
   <div class="row">
     <div class="col-md-8 col-sm-8">
       <div class="general-content">
-        <%= simple_form_for @cuisine do |f| %>
-          <%= f.input :name, label: 'Nome da cozinha' %>
+        <%= simple_form_for @food_type do |f| %>
+          <%= f.input :name, label: 'Tipo de comida' %>
 
           <%= link_to 'Voltar', root_path , class: "btn btn-default" %>
-          <%= f.button :submit, 'Criar Cozinha' %>
+          <%= f.button :submit, 'Criar Tipo' %>
         <% end %>
       </div>
     </div>
     <div class="col-md-4 col-sm-4">
       <div class="general-img">
-        <%= image_tag 'dish/dish3.jpg', class: 'img-responsive img-thumbnail' %>
+        <%= image_tag 'dish/dish5.jpg', class: 'img-responsive img-thumbnail' %>
         <span class="hot-tag br-green">Novo</span>
       </div>
       <div class="general-img">
-        <%= image_tag 'dish/dish4.jpg', class: 'img-responsive img-thumbnail' %>
+        <%= image_tag 'dish/dish6.jpg', class: 'img-responsive img-thumbnail' %>
         <span class="hot-tag br-red">Top</span>
       </div>
     </div>

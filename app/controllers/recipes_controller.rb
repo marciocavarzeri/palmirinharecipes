@@ -8,12 +8,14 @@ class RecipesController < ApplicationController
   end
 
   def new
+    @cuisines = Cuisine.all
+    @food_types = FoodType.all
     @recipe = Recipe.new
   end
 
   def create
     @recipe = Recipe.new(params.require(:recipe)
-                        .permit(:name, :cuisine, :food_type, :serves,
+                        .permit(:name, :cuisine_id, :food_type_id, :serves,
                                 :cooking_time, :difficulty, :ingredients,
                                 :directions, :picture))
     if @recipe.save

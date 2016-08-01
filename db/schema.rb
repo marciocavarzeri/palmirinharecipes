@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731193058) do
+ActiveRecord::Schema.define(version: 20160801153328) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -35,10 +35,14 @@ ActiveRecord::Schema.define(version: 20160731193058) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "food_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
-    t.string   "cuisine"
-    t.string   "food_type"
     t.integer  "serves"
     t.string   "difficulty"
     t.text     "ingredients"
@@ -50,6 +54,10 @@ ActiveRecord::Schema.define(version: 20160731193058) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "cuisine_id"
+    t.integer  "food_type_id"
+    t.index ["cuisine_id"], name: "index_recipes_on_cuisine_id"
+    t.index ["food_type_id"], name: "index_recipes_on_food_type_id"
   end
 
   create_table "users", force: :cascade do |t|

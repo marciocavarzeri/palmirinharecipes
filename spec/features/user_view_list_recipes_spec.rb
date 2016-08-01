@@ -2,9 +2,14 @@ require 'rails_helper'
 
 feature 'User view a list of all recipes' do
   scenario 'Successffuly' do
-    recipe = create(:recipe)
+    cuisine = create(:cuisine)
+    cuisine2 = create(:cuisine, name: 'Árabe')
+    food_type = create(:food_type)
+    recipe = create(:recipe, cuisine: cuisine, food_type: food_type)
     recipe2 = create(:recipe, name: 'Picadinho de Carne',
-                              cuisine: 'Brasileira')
+                              difficulty: 'Difícil',
+                              cuisine: cuisine2,
+                              food_type: food_type)
     visit recipes_path
     expect(page).to have_content recipe.name
     expect(page).to have_content recipe2.name
@@ -19,8 +24,8 @@ feature 'User view a list of all recipes' do
     end
 
     expect(page).to have_content(recipe.name)
-    expect(page).to have_content(recipe.cuisine)
-    expect(page).to have_content(recipe.food_type)
+    expect(page).to have_content(recipe.cuisine.name)
+    expect(page).to have_content(recipe.food_type.name)
     expect(page).to have_content(recipe.serves)
     expect(page).to have_content(recipe.cooking_time)
     expect(page).to have_content(recipe.difficulty)

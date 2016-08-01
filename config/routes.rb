@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :show, :new, :create]
   authenticate :admin do
     resources :cuisines, only: [:show, :new, :create]
+    resources :food_types, only: [:new, :create]
   end
 end

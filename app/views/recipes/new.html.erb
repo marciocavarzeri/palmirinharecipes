@@ -6,8 +6,10 @@
       <div class="general-content">
         <%= simple_form_for @recipe do |f| %>
           <%= f.input :name, label: 'Nome da receita' %>
-          <%= f.input :cuisine, label: 'Cozinha (cozinhas)' %>
-          <%= f.input :food_type, label: 'Tipo de comida' %>
+          <%= f.input :cuisine_id, collection: @cuisines,
+                                label: 'Cozinha (cozinhas)' %>
+          <%= f.input :food_type_id, collection: @food_types,
+                                  label: 'Tipo de comida' %>
           <%= f.input :serves, label: 'Quantas pessoas serve' %>
           <%= f.input :cooking_time, label: 'Tempo de preparo' %>
           <%= f.input :difficulty, collection: ['Fácil', 'Médio', 'Difícil'],
@@ -28,7 +30,7 @@
       </div>
       <div class="general-img">
         <%= image_tag 'dish/dish2.jpg', class: 'img-responsive img-thumbnail' %>
-        <span class="hot-tag br-red">:D</span>
+        <span class="hot-tag br-red">Top</span>
       </div>
     </div>
   </div>

@@ -17,8 +17,8 @@
         <td><%= image_tag recipe.picture.url(:thumb),
           class: 'img-responsive img-thumbnail' %></td>
         <td><%= link_to recipe.name, recipe %></td>
-        <td><%= recipe.cuisine %></td>
-        <td><%= recipe.food_type %></td>
+        <td><%= recipe.cuisine.name %></td>
+        <td><%= recipe.food_type.name %></td>
         <td><%= recipe.difficulty%></td>
         <td><%= recipe.cooking_time %> min.</td>
       </tr>
