@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :recipes, only: [:index, :show, :new, :create]
   authenticate :admin do
-    resources :cuisines, only: [:show, :new, :create]
+    resources :cuisines, only: [:new, :create]
     resources :food_types, only: [:new, :create]
   end
+  resources :cuisines, only: [:show]
 end

@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= link_to recipe.name, recipe %>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-3">
+            <%= image_tag recipe.picture.url(:thumb),
+              class: 'img-responsive img-thumbnail' %>
+          </div>
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-3">
+                <strong>Cozinha:</strong>
+              </div>
+              <div class="col-md-9">
+                <%= recipe.cuisine.name %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <strong>Tipo:</strong>
+              </div>
+              <div class="col-md-9">
+                <%= recipe.food_type.name %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <strong>Nível:</strong>
+              </div>
+              <div class="col-md-9">
+                <%= recipe.difficulty %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

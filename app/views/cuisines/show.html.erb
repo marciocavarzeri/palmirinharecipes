@@ -1,16 +1,13 @@
-<section
+<section>
   <div class="single-item">
     <div class="container">
       <div class="single-item-content">
         <div class="row">
-          <div class="col-md-8 col-sm-7">
-            <h3><%= @cuisine.name %></h3>
-            <p>
-              A cozinha <strong><%= @cuisine.name %></strong> agora está cadastrada.
-            </p>
-          </div>
-          <div class="col-md-4 col-sm-5">
-          </div>
+          <h3>Receita filtrada por cozinha: <%= @cuisine.name %></h3>
+          <%= render @recipes %>
+        </div>
+        <div class="row">
+          <%= link_to 'Voltar', root_path, class: "btn btn-default" %>
         </div>
       </div>
     </div>
