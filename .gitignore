@@ -24,4 +24,5 @@
 /coverage
 
 # Rspec Testes
-/spec/test_files/*
+/spec/test_files
+/public/system
