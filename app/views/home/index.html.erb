@@ -1,3 +1,29 @@
 <section>
-  
+  <h1>Lista das últimas receitas</h1>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Foto</th>
+        <th>Receita</th>
+        <th>Cozinha</th>
+        <th>Tipo de comida</th>
+        <th>Nível de dificuldade</th>
+        <th>Tempo de preparo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= image_tag recipe.picture.url(:thumb),
+          class: 'img-responsive img-thumbnail' %></td>
+        <td><%= link_to recipe.name, recipe %></td>
+        <td><%= recipe.cuisine.name %></td>
+        <td><%= recipe.food_type.name %></td>
+        <td><%= recipe.difficulty%></td>
+        <td><%= recipe.cooking_time %> min.</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div><%= link_to 'Voltar', root_path , class: "btn btn-default" %></div>
 </section>

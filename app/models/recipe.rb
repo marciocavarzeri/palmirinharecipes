@@ -8,4 +8,9 @@ class Recipe < ApplicationRecord
                     styles: { medium: '300x300>', thumb: '100x100>' },
                     default_url: '/images/:style/missing.png'
   validates_attachment_content_type :picture, content_type: %r{\Aimage\/.*\Z}
+
+  # Refatorar
+  def self.last_twenty
+    last(20).reverse
+  end
 end

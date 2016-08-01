@@ -135,6 +135,8 @@ pt-BR:
         one: não possui o tamanho esperado (1 caracter)
         other: não possui o tamanho esperado (%{count} caracteres)
       other_than: deve ser diferente de %{count}
+      in_between: 'deve ter entre %{min} e %{max}'
+      spoofed_media_type: 'tem uma extensão que não corresponde ao seu conteúdo'
     template:
       body: 'Por favor, verifique o(s) seguinte(s) campo(s):'
       header:
