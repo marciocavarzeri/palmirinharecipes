@@ -7,6 +7,8 @@ feature 'User create a new recipe' do
     cuisine = create(:cuisine, name: 'Portuguesa')
     food_type = create(:food_type, name: 'Entrada')
 
+    user = login_as_user
+
     click_on 'Cadastrar Receita'
 
     expect(page).to have_css('h1', text: 'Cadastrar uma receita')
@@ -27,7 +29,8 @@ feature 'User create a new recipe' do
                                faça um purê, espere esfriar.
                                Em seguida misture o purê com o bacalhau
                                desfiado, acrescente os outros ingredientes.
-                               Faça bolinhas e frite-as em óleo bem quente.')
+                               Faça bolinhas e frite-as em óleo bem quente.',
+                   user: user)
 
     fill_in 'Nome da receita', with: recipe.name
     select cuisine.name, from: 'Cozinha (cozinhas)'
@@ -56,6 +59,8 @@ feature 'User create a new recipe' do
 
   scenario 'without required fields' do
     visit root_path
+
+    login_as_user
 
     click_on 'Cadastrar Receita'
 

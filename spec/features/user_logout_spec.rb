@@ -1,16 +1,16 @@
-feature 'Admin logout' do
+feature 'User logout' do
   scenario 'successfully' do
-    admin = create(:admin, email: 'admin@cavarzeri.com.br',
-                           password: '123456')
+    user = create(:user, email: 'user@cavarzeri.com.br',
+                         password: '123456')
     visit root_path
 
     within('div.header-top') do
-      click_on 'Área administrativa'
+      click_on 'Entrar'
     end
 
     within('section') do
-      fill_in 'Email',  with: admin.email
-      fill_in 'Senha',  with: admin.password
+      fill_in 'Email',  with: user.email
+      fill_in 'Senha',  with: user.password
 
       click_on 'Entrar'
     end
@@ -19,7 +19,7 @@ feature 'Admin logout' do
       click_on 'Sair'
     end
 
-    expect(page).to_not have_content("Olá, #{admin.email}")
+    expect(page).to_not have_content("Olá, #{user.email}")
     expect(page).to have_content('Saiu com sucesso')
 
     within('nav') do

@@ -17,5 +17,6 @@ FactoryGirl.define do
                  desfiado, acrescente os outros ingredientes.
                  Faça bolinhas e frite-as em óleo bem quente.'
     picture { File.new("#{Rails.root}/spec/fixtures/bolinho.png") }
+    user
   end
 end

@@ -63,12 +63,14 @@
                       Receitas
                     <% end %>
                   </li>
-                  <li>
-                    <%= link_to new_recipe_path do %>
-                      <%= image_tag 'nav-menu/nav3.jpg', class: 'img-responsive' %>
-                      Cadastrar Receita
-                    <% end %>
-                  </li>
+                  <% if user_signed_in? %>
+                    <li>
+                      <%= link_to new_recipe_path do %>
+                        <%= image_tag 'nav-menu/nav3.jpg', class: 'img-responsive' %>
+                        Cadastrar Receita
+                      <% end %>
+                    </li>
+                  <% end %>
                   <% if admin_signed_in? %>
                     <li>
                       <%= link_to new_cuisine_path do %>

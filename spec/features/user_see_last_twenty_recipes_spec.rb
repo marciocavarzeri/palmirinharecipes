@@ -2,16 +2,19 @@ require 'rails_helper'
 
 feature 'User see last twenty recipes' do
   scenario 'successfully' do
+    user = create(:user)
     cuisine = create(:cuisine, name: 'Italiana')
     food_type = create(:food_type, name: 'Acompanhamento')
     cuisine2 = create(:cuisine)
     food_type2 = create(:food_type)
     recipe = create(:recipe, name: 'Receita da vovó',
                              cuisine: cuisine,
-                             food_type: food_type)
+                             food_type: food_type,
+                             user: user)
 
     recipe_list = create_list(:recipe, 20, cuisine: cuisine2,
-                                           food_type: food_type2)
+                                           food_type: food_type2,
+                                           user: user)
 
     visit root_path
 

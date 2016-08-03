@@ -2,15 +2,17 @@ require 'rails_helper'
 
 feature 'Visitor view recipes by cuisine' do
   scenario 'successfully' do
+    user = create(:user)
     cuisine = create(:cuisine)
     food_type = create(:food_type, name: 'Sobremesa')
     another_cuisine = create(:cuisine, name: 'Italiana')
-    recipe = create(:recipe, cuisine: cuisine)
+    recipe = create(:recipe, cuisine: cuisine, user: user)
 
     another_recipe = create(:recipe, name: 'Bolo de fubá',
                                      cuisine: another_cuisine,
                                      difficulty: 'Difícil',
-                                     food_type: food_type)
+                                     food_type: food_type,
+                                     user: user)
 
     visit root_path
 

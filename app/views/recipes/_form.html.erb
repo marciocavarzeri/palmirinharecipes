@@ -1,0 +1,17 @@
+<%= simple_form_for @recipe do |f| %>
+  <%= f.input :name, label: 'Nome da receita' %>
+  <%= f.input :cuisine_id, collection: @cuisines,
+                        label: 'Cozinha (cozinhas)' %>
+  <%= f.input :food_type_id, collection: @food_types,
+                          label: 'Tipo de comida' %>
+  <%= f.input :serves, label: 'Quantas pessoas serve' %>
+  <%= f.input :cooking_time, label: 'Tempo de preparo' %>
+  <%= f.input :difficulty, collection: ['Fácil', 'Médio', 'Difícil'],
+                           label: 'Nível de dificuldade' %>
+  <%= f.input :ingredients, label: 'Ingredientes' %>
+  <%= f.input :directions, label: 'Passo a passo' %>
+  <%= f.input :picture, label: 'Selecione uma foto', as: :file %>
+
+  <%= link_to 'Voltar', root_path , class: "btn btn-default" %>
+  <%= f.button :submit, submit_text %>
+<% end %>

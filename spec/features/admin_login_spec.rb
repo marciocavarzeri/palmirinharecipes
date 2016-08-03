@@ -20,8 +20,10 @@ feature 'Admin login' do
     expect(page).to have_content("Olá, #{admin.email}")
 
     within('nav') do
+      expect(page).to have_content('Receitas')
       expect(page).to have_content('Cadastrar Cozinha')
-      expect(page).to have_content('Cadastrar Receita')
+      expect(page).to have_content('Cadastrar Tipo')
+      expect(page).not_to have_content('Cadastrar Receita')
     end
   end
 

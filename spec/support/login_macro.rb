@@ -15,4 +15,18 @@ module LoginMacro
       click_on 'Entrar'
     end
   end
+
+  def login_as_user
+    user = create(:user, email: 'user@cavarzeri.com.br',
+                         password: '12345678')
+    visit new_user_session_path
+
+    within('section') do
+      fill_in 'Email',  with: user.email
+      fill_in 'Senha',  with: user.password
+      click_on 'Entrar'
+    end
+
+    user
+  end
 end
