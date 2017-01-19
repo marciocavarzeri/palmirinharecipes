@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20160801153328) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -25,8 +28,8 @@ ActiveRecord::Schema.define(version: 20160801153328) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "cuisines", force: :cascade do |t|
@@ -56,8 +59,8 @@ ActiveRecord::Schema.define(version: 20160801153328) do
     t.datetime "picture_updated_at"
     t.integer  "cuisine_id"
     t.integer  "food_type_id"
-    t.index ["cuisine_id"], name: "index_recipes_on_cuisine_id"
-    t.index ["food_type_id"], name: "index_recipes_on_food_type_id"
+    t.index ["cuisine_id"], name: "index_recipes_on_cuisine_id", using: :btree
+    t.index ["food_type_id"], name: "index_recipes_on_food_type_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,8 +76,10 @@ ActiveRecord::Schema.define(version: 20160801153328) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "recipes", "cuisines"
+  add_foreign_key "recipes", "food_types"
 end

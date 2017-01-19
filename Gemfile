@@ -13,9 +13,9 @@ gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'devise'
 gem 'paperclip'
+gem 'pg'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
