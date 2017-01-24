@@ -2,17 +2,16 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: dev
-  password: dev
+  port: 5432
 
 development:
   <<: *default
   database: recipes-development
+  username: postgres
+  host: db
 
 test:
   <<: *default
   database: recipes-test
-
-production:
-  <<: *default
-  database: recipes-prod
+  username: postgres
+  host: db

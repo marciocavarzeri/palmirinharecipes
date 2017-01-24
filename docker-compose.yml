@@ -1,0 +1,14 @@
+version: '2'
+services:
+  db:
+    image: postgres
+    ports:
+      - "0:5432"
+  web:
+    build: .
+    volumes:
+      - .:/palimirinharecipes
+    ports:
+      - "80:80"
+    links:
+      - db
