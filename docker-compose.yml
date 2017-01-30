@@ -10,5 +10,6 @@ services:
       - .:/palimirinharecipes
     ports:
       - "80:80"
+    command: ./docker/start.sh
     links:
       - db

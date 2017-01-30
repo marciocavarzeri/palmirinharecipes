@@ -1,24 +1,28 @@
-# README
+Palmirinha Recipes
+=========
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TODO _Project Description_
 
-Things you may want to cover:
+## How to setup
 
-* Ruby version
+### Requirements
 
-* System dependencies
+- Docker Compose
 
-* Configuration
+### Steps
 
-* Database creation
+Run `docker-compose build` in project root folder.
 
-* Database initialization
+## Running specs
 
-* How to run the test suite
+Run `docker-compose run --rm web bash`. This command will open a bash in project
+folder and run rspec.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Running app
 
-* Deployment instructions
+Run `docker-compose up`.
 
-* ...
+## Architecture's Components
+
+- Rails ~> 5.0.0
+- Postgres

@@ -14,4 +14,6 @@ RUN bundle install
 
 COPY . /palmirinharecipes
 
+RUN chmod a+x /palmirinharecipes/docker/start.sh
+
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
